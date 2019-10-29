@@ -10,11 +10,11 @@ router.param('id', function (req, res, next, id) {
       req.products = productsCollection.items
       next()
     }).catch(function (err) {
-      console.log('categories.js - getProductsInCategory (line 9) error:', JSON.stringify(err,null,2))
+      console.log('categories.js - getProductsInCategory (line 9) error:', JSON.stringify(err, null, 2))
       next()
     })
   }).catch(function (err) {
-    console.log('categories.js - getCategories (line 7) error:', JSON.stringify(err,null,2))
+    console.log('categories.js - getCategories (line 7) error:', JSON.stringify(err, null, 2))
     next()
   })
 })
@@ -26,19 +26,19 @@ router.use(function (req, res, next) {
       req.products = productsCollection.items
       next()
     }).catch(function (err) {
-      console.log('categories.js - getProducts (line 25) error:', JSON.stringify(err,null,2))
+      console.log('categories.js - getProducts (line 25) error:', JSON.stringify(err, null, 2))
       next()
     })
   }).catch(function (err) {
-    console.log('categories.js - getCategories (line 23) error:', JSON.stringify(err,null,2))
+    console.log('categories.js - getCategories (line 23) error:', JSON.stringify(err, null, 2))
     next()
   })
 })
 
 router.get('/:id', function (req, res, next) {
-  res.render('categories', {title: 'Categories', categories: req.categories, products: req.products})
+  res.render('categories', { title: 'Categories', categories: req.categories, products: req.products })
 })
 router.get('/', function (req, res, next) {
-  res.render('categories', {title: 'Categories', categories: req.categories, products: req.products})
+  res.render('categories', { title: 'Categories', categories: req.categories, products: req.products })
 })
 module.exports = router
